@@ -2,6 +2,9 @@
 " 全体
 "---------------
 
+"検索のハイライト
+set hlsearch
+
 "非互換モード
 set nocompatible
 

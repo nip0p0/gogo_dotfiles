@@ -90,7 +90,7 @@ alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 
 # rbenv
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 alias be='bundle exec'
 
 # nodenv
