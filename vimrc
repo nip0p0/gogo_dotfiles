@@ -1,7 +1,6 @@
 "---------------
 " 全体
 "---------------
-
 "検索のハイライト
 set hlsearch
 
@@ -335,4 +334,16 @@ let g:ragtag_global_maps = 1
 "---------------
 " VimSound
 "---------------
+
+
+"カーソル位置を目立たせる
+set cursorline
+set cursorcolumn
+
+highlight CursorLine ctermbg=254
+highlight CursorLine ctermfg=232
+
+highlight CursorColumn ctermbg=254
+highlight CursorColumn ctermfg=232
+
 
