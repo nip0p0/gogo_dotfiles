@@ -97,7 +97,8 @@ alias be='bundle exec'
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # myqsl
-export PATH=/usr/local/mysql-5.5/bin:$PATH
+# export PATH=/usr/local/mysql-5.5/bin:$PATH
+export PATH=/usr/local/mysql-5.5/support-files:$PATH
 
 # redis
 export PATH=/usr/local/redis-2.6/bin:$PATH
