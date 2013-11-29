@@ -4,6 +4,8 @@ autoload -U compinit
 compinit -u
 autoload -U colors
 colors
+plugins=(git ruby osx bundler brew rails emoji-clock)
+
 
 # git
 autoload -Uz vcs_info
