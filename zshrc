@@ -5,28 +5,68 @@ compinit -u
 autoload -U colors
 colors
 
-# git
-autoload -Uz vcs_info
+###################################################
+# 以下oh-my-zsh
 
-# 表示フォーマットの指定
-# %b ブランチ情報
-# %a アクション名(mergeなど)
-zstyle ':vcs_info:*' formats '[%b]'
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () {
-  if [ $TERM = "screen" ]; then
-    echo -ne "\ek$(basename $SHELL)\e\\"
-  fi
-  psvar=()
-  LANG=ja_JP.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+plugins=(git ruby osx bundler brew rails emoji-clock)
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="cloud"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Uncomment this to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+
+source $ZSH/oh-my-zsh.sh
+#oh-my-zsh終わり
+################################
+
+
+# ｢^｣キーを押すと, どんどん上のディレクトリーに動く
+# ｢^｣自体を打ちたい時はctrl-Vの後に^
+function cdup() {
+  echo
+  cd ..
+  zle reset-prompt
 }
-
-# バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
-# RPROMPT="%1(v|%F{green}%1v%f|)"
-
-# プロンプト表示形式
-PROMPT="%n%% "
+zle -N cdup
+bindkey '\^' cdup
 
 # Emacsキーバインド
 bindkey -e
@@ -129,54 +169,27 @@ fi
 # 環境ごと
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
 
-###################################################
-# 以下oh-my-zsh
 
-plugins=(git ruby osx bundler brew rails emoji-clock)
+## git
+#autoload -Uz vcs_info
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+## バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
+# RPROMPT="%1(v|%F{green}%1v%f|)"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="cloud"
+## プロンプト表示形式
+#PROMPT="%n%% "
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# 表示フォーマットの指定
+# %b ブランチ情報
+# %a アクション名(mergeなど)
+# zstyle ':vcs_info:*' formats '[%b]'
+# zstyle ':vcs_info:*' actionformats '[%b|%a]'
+#precmd () {
+#  if [ $TERM = "screen" ]; then
+#    echo -ne "\ek$(basename $SHELL)\e\\"
+#  fi
+#  psvar=()
+#  LANG=ja_JP.UTF-8 vcs_info
+#  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+#}
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
