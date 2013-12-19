@@ -247,6 +247,7 @@ NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'Railscasts-Theme-GUIand256color'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'osyo-manga/vim-sound'
+NeoBundle 'Shougo/vimfiler'
 
 filetype plugin indent on
 filetype indent on
