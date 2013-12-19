@@ -8,8 +8,6 @@ colors
 ###################################################
 # 以下oh-my-zsh
 
-plugins=(git ruby osx bundler brew rails emoji-clock)
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
