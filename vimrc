@@ -313,13 +313,16 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplSplitToEdge = 1
+let g:miniBufExplCycleArround = 1
 
 ""GNU screen likeなキーバインド
 let mapleader = ""
 nmap <S-Space> :MBEbp<CR>
 nmap <Space> :MBEbn<CR>
+nmap <C-n> :MBEbp<CR>
+nmap <C-p> :MBEbn<CR>
 nnoremap <C-X><C-N> :new<CR>
 nnoremap <C-X><C-K> :bd<CR>
 let mapleader = '\'
@@ -335,6 +338,16 @@ let g:ragtag_global_maps = 1
 "---------------
 " VimSound
 "---------------
+
+
+"---------------
+" Vimfiler
+"---------------
+autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default=0
+let g:netrw_liststyle=3
+
 
 
 "カーソル位置を目立たせる
