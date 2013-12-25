@@ -155,9 +155,20 @@ nnoremap <Space><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 " 最後に変更した場所へ戻る
 map <C-m> `.
 
-"コマンドモードで Emacs キーバインド
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+
+" Emacs キーバインド
 cmap <C-a> <Home>
 cmap <C-e> <End>
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 
 nnoremap <D-¥> \
 
@@ -197,7 +208,7 @@ augroup END
 
 augroup FileTypePlugin
   autocmd!
-  autocmd FileType int-pry    setlocal nonu
+autocmd FileType int-pry    setlocal nonu
   autocmd FileType int-python setlocal nonu
   autocmd FileType java       setlocal ts=4 sts=4 sw=4
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2
@@ -271,6 +282,7 @@ hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
 " Neocomplcache
 "---------------
 
+" Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
@@ -281,18 +293,18 @@ let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_enable_auto_select = 1
 
 ""Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+" imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+" smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
+" inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 ""Recommended key-mappings.
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
-inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
+" inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
+" inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 
 "---------------
