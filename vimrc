@@ -1,6 +1,31 @@
 "---------------
-" 全体
+" set系
 "---------------
+
+" 行頭行末の左右移動で行をまたぐ
+" set whichwrap=b,s,h,l,<,>,[,]
+
+" マウスの入力を受け付ける
+set mouse=a
+
+" OSのクリップボードをレジスタ指定無しで Yank, Put 出来るようにする
+set clipboard=unnamed,unnamedplus
+
+" 外部での変更の自動更新
+set autoread
+
+" 自動インデント
+set smartindent
+
+"行番号を表示する
+set number
+
+"モードラインを書く行数
+set modelines=0
+
+"タブラインを非表示
+set showtabline=0
+
 "検索のハイライト
 set hlsearch
 
@@ -15,16 +40,81 @@ set fencs=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932
 "IME
 set imi=0
 set ims=0
+"ペースト時にオートインデントを無効に 
+"set paste
 
-"クリップボードと同期を取る
-set clipboard=unnamed
+" バックスペースの挙動
+set backspace=indent,eol,start
 
+"ファイル中のタブ文字が対応する空白の数
+set tabstop=2
 
+"インデントは空白2つ
+set shiftwidth=2
+
+"タブが入力されたときの空白の数
+set softtabstop=0
+
+"タブではなく適切な数の空白を使う
+set expandtab
+
+" 対応する括弧を強調表示
+set showmatch
+
+"長い行を折り返さない
+"set nowrap
+
+" カーソル先の視界を何行確保するか
+set scrolloff=5
+set sidescrolloff=16
+
+"バックアップしない
+set nobackup
+
+"スワップファイル作らない
+set noswapfile
+
+"変更しててもバッファ消せる
+set modifiable
+
+"バッファを保存しないで他のファイルを開けるようにする
+set hidden
+
+" インクリメンタルサーチしない
+set incsearch
+
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+
+" 検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase
+
+" 置換の時 g オプションをデフォルトで有効にする
+set gdefault
+
+"検索時に最後まで行ったら最初に戻る
+set wrapscan
+"ステータスラインを表示
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w%{'['.&fenc.']['.&ff.']'}%=%l,%c%V%8P
+
+" 右下にカーソルの位置情報を表示
+set ruler
+
+"入力したコマンドをステータスラインに表示
+set showcmd
+
+" 最初の<Tab>で共通部分まで補完、2回目の<Tab>若しくは最初の<Tab>で共通部分がなかった場合は一覧表示、3回目以降の<Tab>で順番にマッチしたものを完全に補完する。
+set wildmode=longest,list,full
+
+" 強化されたコマンドライン補完を使用
+set wildmenu
+
+set diffexpr=MyDiff()
 "---------------
 " デフォルト設定
 "---------------
 
-set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
@@ -49,118 +139,25 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-
-"---------------
-" 表示
-"---------------
-
-"行番号を表示する
-set number
-
-"モードラインを書く行数
-set modelines=0
-
-"タブラインを非表示
-set showtabline=0
-
-
-"---------------
-" 編集
-"---------------
-
-"自動インデント
-set smartindent
-
-"ペースト時にオートインデントを無効に 
-"set paste
-
-"バックスペースの挙動
-set backspace=indent,eol,start
-
-"ファイル中のタブ文字が対応する空白の数
-set tabstop=2
-
-"インデントは空白2つ
-set shiftwidth=2
-
-"タブが入力されたときの空白の数
-set softtabstop=0
-
-"タブではなく適切な数の空白を使う
-set expandtab
-
-"対応する括弧を強調表示
-set showmatch
-
-"長い行を折り返さない
-"set nowrap
-
-"上下から、指定した行数に達したら自動スクロール
-set scrolloff=5
-
-
-"---------------
-" ファイル
-"---------------
-
-"バックアップしない
-set nobackup
-
-"スワップファイル作らない
-set noswapfile
-
-"変更しててもバッファ消せる
-set modifiable
-
-"バッファを保存しないで他のファイルを開けるようにする
-set hidden
-
 "オートCD
 au BufEnter * execute ":lcd " . expand("%:p:h")
-
-
-
-"---------------
-" 検索
-"---------------
-
-"インクリメンタルサーチしない
-set noincsearch
-
-"検索文字列が小文字の場合は大文字小文字を区別なく検索する
-set ignorecase
-
-"検索文字列に大文字が含まれている場合は区別して検索する
-set smartcase
-
-"検索文字列をハイライトしない
-set nohlsearch
-
-"検索時に最後まで行ったら最初に戻る
-set wrapscan
-
-
-"---------------
-" ステータスライン
-"---------------
-
-"ステータスラインを表示
-set laststatus=2
-set statusline=%<%f\ %m%r%h%w%{'['.&fenc.']['.&ff.']'}%=%l,%c%V%8P
-
-"位置情報を表示
-set ruler
-
-"入力したコマンドをステータスラインに表示
-set showcmd
-
-"強化されたコマンドライン補完を使用
-set wildmenu
 
 
 "---------------
 " キーマップ
 "---------------
+" visualモードでC-cでコピー
+vnoremap <C-c> y:call system("pbcopy", getreg("\""))<CR>
+
+" normalモードで貼り付け
+nnoremap <Space><C-v> :call setreg("\"",system("pbpaste"))<CR>p
+
+" 最後に変更した場所へ戻る
+map <C-m> `.
+
+"コマンドモードで Emacs キーバインド
+cmap <C-a> <Home>
+cmap <C-e> <End>
 
 nnoremap <D-¥> \
 
@@ -182,14 +179,6 @@ nmap =J :e ++enc=iso-2022-jp<CR>
 "ファイルの改行コードを変更
 nmap ,W :set ff=dos<CR>
 nmap ,L :set ff=unix<CR>
-
-"コマンドモードで Emacs キーバインド
-cmap <C-A> <Home>
-cmap <C-F> <Right>
-cmap <C-B> <Left>
-cmap <C-D> <Delete>
-cmap <Esc>b <S-Left>
-cmap <Esc>f <S-Right>
 
 
 "---------------
@@ -344,13 +333,12 @@ let g:ragtag_global_maps = 1
 " Vimfiler
 "---------------
 autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
+"vim立ち上げのdefaltをvimfilerに
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default=0
 let g:netrw_liststyle=3
 
-
-
-"カーソル位置を目立たせる
+" カーソル位置を目立たせる
 set cursorline
 set cursorcolumn
 
@@ -359,5 +347,8 @@ highlight CursorLine ctermfg=232
 
 highlight CursorColumn ctermbg=254
 highlight CursorColumn ctermfg=232
+
+
+
 
 
