@@ -22,6 +22,8 @@
 [credential]
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  new-branch = !git fetch --prune | git checkout origin/develop -b 
   b = branch -a
   br = browse-remote
   ci = commit 

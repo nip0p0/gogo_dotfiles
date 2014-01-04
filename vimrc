@@ -171,6 +171,7 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
 nnoremap <D-¥> \
+nnoremap <C-k> d$i 
 
 "表示行単位で移動
 nnoremap j gj
