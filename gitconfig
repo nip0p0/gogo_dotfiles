@@ -20,6 +20,7 @@
 [web]
   browser = google-chrome
 [credential]
+  helper = osxkeychain
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
