@@ -22,9 +22,3 @@ if [ ! -d $HOME/.vim/bundle/neobundle.vim ]
 then
   git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
-
-# Install RailsCasts theme
-if [ ! -d $HOME/.vim/colors/ ]
-then
-  git clone https://github.com/jpo/vim-railscasts-theme.git ~/.vim/
-fi
