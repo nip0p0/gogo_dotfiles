@@ -1,3 +1,9 @@
+# Don't forget to move railscasts.vim
+
+```
+% mkdir ~/.vim/color; mv railscasts.vim  ~/.vim/color
+```
+
 # Install or Update
 
 ```
