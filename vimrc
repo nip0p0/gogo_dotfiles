@@ -155,13 +155,6 @@ nnoremap <Space><C-v> :call setreg("\"",system("pbpaste"))<CR>p
 " 最後に変更した場所へ戻る
 map <C-m> `.
 
-" 挿入モードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-
 " Emacs キーバインド
 cmap <C-a> <Home>
 cmap <C-e> <End>
@@ -220,7 +213,7 @@ autocmd FileType int-pry    setlocal nonu
   autocmd FileType scss       setlocal ts=2 sts=2 sw=2
   autocmd FileType css        setlocal ts=2 sts=2 sw=2
   autocmd FileType markdown   setlocal tw=0
-  autocmd FileType vimfiler   setlocal nonu
+  " autocmd FileType vimfiler   setlocal nonu
   autocmd FileType vimshell   setlocal nonu
 augroup END
 
@@ -248,7 +241,7 @@ NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'Railscasts-Theme-GUIand256color'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'osyo-manga/vim-sound'
-NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'Shougo/vimfiler'
 
 filetype plugin indent on
 filetype indent on
@@ -345,11 +338,11 @@ let g:ragtag_global_maps = 1
 "---------------
 " Vimfiler
 "---------------
-autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
-"vim立ち上げのdefaltをvimfilerに
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default=0
-let g:netrw_liststyle=3
+"autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
+""vim立ち上げのdefaltをvimfilerに
+"let g:vimfiler_as_default_explorer = 1
+"let g:vimfiler_safe_mode_by_default=0
+"let g:netrw_liststyle=3
 
 " カーソル位置を目立たせる
 set cursorline
