@@ -41,7 +41,7 @@ set fencs=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932
 set imi=0
 set ims=0
 "ペースト時にオートインデントを無効に 
-"set paste
+set paste
 
 " バックスペースの挙動
 set backspace=indent,eol,start
