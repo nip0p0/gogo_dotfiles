@@ -151,7 +151,7 @@ fi
 # }
 # zle -N cdup
 # bindkey '\^' cdup
-}
+#}
 
 
 
