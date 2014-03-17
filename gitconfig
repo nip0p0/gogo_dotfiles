@@ -16,7 +16,7 @@
 [merge]
 [pull]
 [github]
-  user = gogotanaka 
+  user = gogotanaka
 [web]
   browser = google-chrome
 [credential]
@@ -24,14 +24,14 @@
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
-  new-branch = !git fetch --prune | git checkout origin/develop -b 
+  new-branch = !git fetch --prune | git checkout origin/develop -b
   b = branch -a
   br = browse-remote
-  ci = commit 
+  ci = commit
   co = checkout
   d = diff
   dc = diff --cached
-  di = diff   
+  di = diff
   dic = diff --cached
   f = fetch --prune
   fs = !git f && git su
@@ -43,5 +43,5 @@
   lp = log --oneline -n 20 -p
   ls = log --stat --abbrev-commit -n 1 # display previous log
   s = status --short --branch
-  st = status 
+  st = status
   su = submodule update

@@ -40,7 +40,7 @@ set fencs=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932
 "IME
 set imi=0
 set ims=0
-"ペースト時にオートインデントを無効に 
+"ペースト時にオートインデントを無効に
 set paste
 
 " バックスペースの挙動
@@ -164,7 +164,7 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
 nnoremap <D-¥> \
-nnoremap <C-k> d$i 
+nnoremap <C-k> d$i
 
 "表示行単位で移動
 nnoremap j gj
@@ -190,32 +190,32 @@ nmap ,L :set ff=unix<CR>
 " ファイルタイプ設定
 "---------------
 
-augroup FileTypeDetect
-  autocmd!
-  autocmd BufRead,BufNewFile Capfile,Gemfile      setfiletype ruby
-  autocmd BufRead,BufNewFile *.json               setfiletype javascript
-  autocmd BufRead,BufNewFile *.coffee             setfiletype coffee
-  autocmd BufRead,BufNewFile *.md                 setfiletype markdown
-  autocmd BufRead,BufNewFile *.pp                 setfiletype puppet
-  autocmd BufRead,BufNewFile *.scss               setfiletype scss
-augroup END
-
-augroup FileTypePlugin
-  autocmd!
-autocmd FileType int-pry    setlocal nonu
-  autocmd FileType int-python setlocal nonu
-  autocmd FileType java       setlocal ts=4 sts=4 sw=4
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2
-  autocmd FileType ruby       setlocal ts=2 sts=2 sw=2
-  autocmd FileType python     setlocal ts=4 sts=4 sw=4 si cinw=if,elif,else,for,while,try,except,finally,def,class
-  autocmd FileType vim        setlocal ts=2 sts=2 sw=2
-  autocmd FileType html       setlocal ts=2 sts=2 sw=2
-  autocmd FileType scss       setlocal ts=2 sts=2 sw=2
-  autocmd FileType css        setlocal ts=2 sts=2 sw=2
-  autocmd FileType markdown   setlocal tw=0
-  " autocmd FileType vimfiler   setlocal nonu
-  autocmd FileType vimshell   setlocal nonu
-augroup END
+" augroup FileTypeDetect
+"   autocmd!
+"   autocmd BufRead,BufNewFile Capfile,Gemfile      setfiletype ruby
+"   autocmd BufRead,BufNewFile *.json               setfiletype javascript
+"   autocmd BufRead,BufNewFile *.coffee             setfiletype coffee
+"   autocmd BufRead,BufNewFile *.md                 setfiletype markdown
+"   autocmd BufRead,BufNewFile *.pp                 setfiletype puppet
+"   autocmd BufRead,BufNewFile *.scss               setfiletype scss
+" augroup END
+"
+" augroup FileTypePlugin
+"   autocmd!
+" autocmd FileType int-pry    setlocal nonu
+"   autocmd FileType int-python setlocal nonu
+"   autocmd FileType java       setlocal ts=4 sts=4 sw=4
+"   autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+"   autocmd FileType ruby       setlocal ts=2 sts=2 sw=2
+"   autocmd FileType python     setlocal ts=4 sts=4 sw=4 si cinw=if,elif,else,for,while,try,except,finally,def,class
+"   autocmd FileType vim        setlocal ts=2 sts=2 sw=2
+"   autocmd FileType html       setlocal ts=2 sts=2 sw=2
+"   autocmd FileType scss       setlocal ts=2 sts=2 sw=2
+"   autocmd FileType css        setlocal ts=2 sts=2 sw=2
+"   autocmd FileType markdown   setlocal tw=0
+"   " autocmd FileType vimfiler   setlocal nonu
+"   autocmd FileType vimshell   setlocal nonu
+" augroup END
 
 
 "---------------
@@ -237,11 +237,11 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'Railscasts-Theme-GUIand256color'
-NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'osyo-manga/vim-sound'
 " NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'tpope/vim-ragtag'
+" NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
 filetype indent on
@@ -257,11 +257,6 @@ set t_Co=256
 "シンタックスカラー表示を有効にする
 syntax on
 
-"補完候補の色づけ for vim7
-"hi Pmenu ctermbg=8
-"hi PmenuSel ctermbg=12
-"hi PmenuSbar ctermbg=0
-
 "カラーテーマ
 colorscheme railscasts
 
@@ -270,7 +265,6 @@ hi Pmenu ctermbg=255 ctermfg=0 guifg=#000000 guibg=#999999
 hi PmenuSel ctermbg=blue ctermfg=black
 hi PmenuSbar ctermbg=0 ctermfg=9
 hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
-
 
 "---------------
 " Neocomplcache
@@ -327,7 +321,7 @@ let mapleader = '\'
 " RagTag
 "---------------
 
-let g:ragtag_global_maps = 1
+" let g:ragtag_global_maps = 1
 
 
 "---------------
@@ -353,8 +347,3 @@ highlight CursorLine ctermfg=232
 
 highlight CursorColumn ctermbg=254
 highlight CursorColumn ctermfg=232
-
-
-
-
-
