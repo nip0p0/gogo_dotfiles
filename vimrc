@@ -185,6 +185,9 @@ nmap =J :e ++enc=iso-2022-jp<CR>
 nmap ,W :set ff=dos<CR>
 nmap ,L :set ff=unix<CR>
 
+"<Esc>を簡単に
+inoremap <C-j> <Esc>
+vnoremap <C-[> <Esc>
 
 "---------------
 " ファイルタイプ設定
@@ -236,6 +239,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'Railscasts-Theme-GUIand256color'
 NeoBundle 'osyo-manga/vim-sound'
@@ -337,6 +341,32 @@ let mapleader = '\'
 "let g:vimfiler_as_default_explorer = 1
 "let g:vimfiler_safe_mode_by_default=0
 "let g:netrw_liststyle=3
+
+"---------------
+" Unite
+"---------------
+let g:unite_enable_start_insert = 1
+let g:unite_source_grep_max_candidates = 200
+""grep
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+nnoremap <silent> sg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> scg :<C-u>Unite grep:.  -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ss :<C-u>Unite -buffer-name=files file_rec file<CR>
+nnoremap <silent> sb :<C-u>Unite -buffer-name=file_rec buffer_tab buffer file_mru<CR>
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('tabopen')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" unite grep に ag(The Silver Searcher) を使う
+
+"---------------
+" vimshell
+"---------------
+nnoremap <C-i> :<C-u>VimShell<CR>
+nnoremap <silent> sh :<C-u>VimShell<CR>
+
 
 " カーソル位置を目立たせる
 set cursorline
