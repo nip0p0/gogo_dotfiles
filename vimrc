@@ -2,9 +2,6 @@
 " set系
 "---------------
 
-" 行頭行末の左右移動で行をまたぐ
-" set whichwrap=b,s,h,l,<,>,[,]
-
 " マウスの入力を受け付ける
 set mouse=a
 
@@ -40,8 +37,6 @@ set fencs=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932
 "IME
 set imi=0
 set ims=0
-"ペースト時にオートインデントを無効に 
-set paste
 
 " バックスペースの挙動
 set backspace=indent,eol,start
@@ -60,9 +55,6 @@ set expandtab
 
 " 対応する括弧を強調表示
 set showmatch
-
-"長い行を折り返さない
-"set nowrap
 
 " カーソル先の視界を何行確保するか
 set scrolloff=5
@@ -94,6 +86,7 @@ set gdefault
 
 "検索時に最後まで行ったら最初に戻る
 set wrapscan
+
 "ステータスラインを表示
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['.&fenc.']['.&ff.']'}%=%l,%c%V%8P
@@ -111,6 +104,15 @@ set wildmode=longest,list,full
 set wildmenu
 
 set diffexpr=MyDiff()
+
+" 行頭行末の左右移動で行をまたぐ
+" set whichwrap=b,s,h,l,<,>,[,]
+
+"長い行を折り返さない
+"set nowrap
+
+"ペースト時にオートインデントを無効に 
+"set paste
 "---------------
 " デフォルト設定
 "---------------
