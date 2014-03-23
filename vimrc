@@ -313,14 +313,14 @@ let g:miniBufExplSplitToEdge = 1
 let g:miniBufExplCycleArround = 1
 
 ""GNU screen likeなキーバインド
-let mapleader = ""
-nmap <S-Space> :MBEbp<CR>
+" let mapleader = ""
+" nmap <S-Space> :MBEbp<CR>
 nmap <Space> :MBEbn<CR>
 nmap <C-n> :MBEbp<CR>
 nmap <C-p> :MBEbn<CR>
-nnoremap <C-X><C-N> :new<CR>
-nnoremap <C-X><C-K> :bd<CR>
-let mapleader = '\'
+" nnoremap <C-X><C-N> :new<CR>
+" nnoremap <C-X><C-K> :bd<CR>
+" let mapleader = '\'
 
 
 "---------------
