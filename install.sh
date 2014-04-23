@@ -24,3 +24,8 @@ if [ ! -d $HOME/.vim/bundle/neobundle.vim ]
 then
   git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 fi
+
+# Install vim color scheme
+mkdir -p ~/.vim/colors/
+cp ./vim_color/railscasts.vim ~/.vim/colors/
+
