@@ -75,32 +75,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# java
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
-
-# rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
-alias be='bundle exec'
-
-# nodenv
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# myqsl
-# export PATH=/usr/local/mysql-5.5/bin:$PATH
-export PATH=/usr/local/mysql-5.5/support-files:$PATH
-
-# redis
-export PATH=/usr/local/redis-2.6/bin:$PATH
-
-# mongodb
-export PATH=/usr/local/mongodb-2.4/bin:$PATH
-
-# phantomjs
-export PATH=/usr/local/phantomjs/bin:$PATH
-
 # screen
 if [ $TERM = "screen" ]; then
   preexec() {
