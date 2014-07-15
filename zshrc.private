@@ -2,8 +2,8 @@ alias develop="cd /Users/gogo/develop"
 alias ssm="/Users/gogo/develop/rails/ssm_game_app"
 
 # java
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
+# alias javac='javac -J-Dfile.encoding=UTF-8'
+# alias java='java -Dfile.encoding=UTF-8'
 export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 
 # rbenv

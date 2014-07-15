@@ -14,7 +14,7 @@ IRB.conf[:HISTORY_PATH] = File::expand_path("~/.irb.history")
 # start wirble
 Wirble.init
 
-W#ls command
+#ls command
 def ls(arg)
 system "ls #{arg}"
 end

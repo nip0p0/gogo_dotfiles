@@ -10,13 +10,14 @@ colors
 
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="cloud"
+ZSH_THEME="miloshadzic"
 
 source $ZSH/oh-my-zsh.sh
 #oh-my-zsh終わり
 ################################
 
-
+# Extend ls command
+alias ls="ls -GAF"
 
 # Emacsキーバインド
 bindkey -e
@@ -25,6 +26,7 @@ bindkey -e
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=1000
 SAVEHIST=1000
+export HISTIGNORE=ls:pwd
 
 # 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
 setopt append_history
@@ -63,7 +65,7 @@ setopt pushd_ignore_dups
 setopt print_eightbit
 
 # 色を使う
-setopt prompt_subst
+# setopt prompt_subst
 
 # ビープ音を鳴らさないようにする
 setopt NO_beep
@@ -71,16 +73,16 @@ setopt NO_beep
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# Colorize
-export ZLS_COLORS=$LS_COLORS
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# # Colorize
+# export ZLS_COLORS=$LS_COLORS
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # screen
-if [ $TERM = "screen" ]; then
-  preexec() {
-    echo -ne "\ek$1\e\\"
-  }
-fi
+# if [ $TERM = "screen" ]; then
+#   preexec() {
+#     echo -ne "\ek$1\e\\"
+#   }
+# fi
 
 # cdd
 if [ -f /usr/local/bin/cdd ]; then
