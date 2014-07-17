@@ -1,9 +1,251 @@
+""""""""""""""""""""""""""""""
+" 自動的に閉じ括弧を入力
+" """"""""""""""""""""""""""""""
+imap { {}<LEFT>
+imap [ []<LEFT>
+imap ( ()<LEFT>
+" """"""""""""""""""""""""""""""
+"オートCD
+au BufEnter * execute ":lcd " . expand("%:p:h")
+
 "---------------
-" set系
+" キーマップ
+"---------------
+" Sync pbpaste 
+vnoremap y y:call system("pbcopy", getreg("\""))<CR>
+nnoremap yy yy:call system("pbcopy", getreg("\""))<CR>
+
+" 最後に変更した場所へ戻る
+map <Space>m `.
+nnoremap <Space>/  *
+" Search parenthesis
+noremap <Space>p  %
+nnoremap <D-¥> \
+
+" Emacs keybind 
+cmap <C-a> <Home>
+cmap <C-e> <End>
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+nnoremap <C-k> d$i
+
+
+"表示行単位で移動
+nnoremap j gj
+nnoremap k gk
+
+"ファイルの文字コードを変更
+nmap ,U :set fileencoding=utf-8<CR>
+nmap ,E :set fileencoding=euc-jp<CR>
+nmap ,S :set fileencoding=cp932<CR>
+
+"ファイルの文字コードを指定して開き直す
+nmap =U :e ++enc=utf8<CR>
+nmap =S :e ++enc=sjis<CR>
+nmap =E :e ++enc=euc-jp<CR>
+nmap =J :e ++enc=iso-2022-jp<CR>
+
+"ファイルの改行コードを変更
+nmap ,W :set ff=dos<CR>
+nmap ,L :set ff=unix<CR>
+
+"<Esc>を簡単に
+inoremap <C-j> <Esc>
+vnoremap <C-[> <Esc>
+
+"---------------
+" ファイルタイプ設定
 "---------------
 
-" マウスの入力を受け付ける
-set mouse=a
+ augroup FileTypeDetect
+   autocmd!
+   autocmd BufRead,BufNewFile Capfile,Gemfile      setfiletype ruby
+   autocmd BufRead,BufNewFile *.json               setfiletype javascript
+   autocmd BufRead,BufNewFile *.coffee             setfiletype coffee
+   autocmd BufRead,BufNewFile *.md                 setfiletype markdown
+   autocmd BufRead,BufNewFile *.pp                 setfiletype puppet
+   autocmd BufRead,BufNewFile *.scss               setfiletype scss
+ augroup END
+
+ augroup FileTypePlugin
+   autocmd!
+ autocmd FileType int-pry    setlocal nonu
+   autocmd FileType int-python setlocal nonu
+   autocmd FileType java       setlocal ts=4 sts=4 sw=4
+   autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+   autocmd FileType ruby       setlocal ts=2 sts=2 sw=2
+   autocmd FileType python     setlocal ts=4 sts=4 sw=4 si cinw=if,elif,else,for,while,try,except,finally,def,class
+   autocmd FileType vim        setlocal ts=2 sts=2 sw=2
+   autocmd FileType html       setlocal ts=2 sts=2 sw=2
+   autocmd FileType scss       setlocal ts=2 sts=2 sw=2
+   autocmd FileType css        setlocal ts=2 sts=2 sw=2
+   autocmd FileType markdown   setlocal tw=0
+   " autocmd FileType vimfiler   setlocal nonu
+   autocmd FileType vimshell   setlocal nonu
+ augroup END
+
+"---------------
+" color 
+"---------------
+
+"256色を使う
+set t_Co=256
+
+"シンタックスカラー表示を有効にする
+syntax on
+
+"カラーテーマ
+colorscheme railscasts
+
+hi LineNr ctermbg=black guifg=#FFFFFF
+
+"補完候補の色づけ for vim7
+hi Pmenu ctermbg=255 ctermfg=0 guifg=#000000 guibg=#999999
+hi PmenuSel ctermbg=blue ctermfg=black
+hi PmenuSbar ctermbg=0 ctermfg=9
+hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
+
+
+"---------------
+" NeoBundle
+"---------------
+
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+let g:neobundle_default_git_protocol='https'
+
+" originalrepos on github
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimshell'
+" NeoBundle 'fholgado/minibufexpl.vim'
+NeoBundle 'Railscasts-Theme-GUIand256color'
+NeoBundle 'osyo-manga/vim-sound'
+NeoBundle 'Lokaltog/vim-powerline'
+" make indent look good
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'lim-template/vim-slim'
+" NeoBundle 'tpope/vim-endwise'
+" NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'tpope/vim-ragtag'
+" NeoBundle 'kchmck/vim-coffee-script'
+" NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'tpope/vim-fugitive'
+filetype plugin indent on
+filetype indent on
+
+"---------------
+" Neocomplcache
+"---------------
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_auto_completion_start_length = 2
+let g:neocomplcache_enable_auto_select = 1
+
+""Plugin key-mappings.
+" imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+" smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g> neocomplcache#undo_completion()
+" inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+""Recommended key-mappings.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
+" inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+" inoremap <expr><C-e> neocomplcache#cancel_popup()
+
+
+"---------------
+" MiniBufExplorer
+"---------------
+
+" let g:miniBufExplMapWindowNavVim = 1
+" let g:miniBufExplMapWindowNavArrows = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplModSelTarget = 1
+" let g:miniBufExplSplitToEdge = 1
+" let g:miniBufExplCycleArround = 1
+
+""GNU screen likeなキーバインド
+" nmap <S-Space> :MBEbp<CR>
+nmap <C-n> :MBEbp<CR>
+nmap <C-p> :MBEbn<CR>
+" nnoremap <C-X><C-N> :new<CR>
+" nnoremap <C-X><C-K> :bd<CR>
+
+"---------------
+" RagTag
+"---------------
+
+" let g:ragtag_global_maps = 1
+
+
+"---------------
+" VimSound
+"---------------
+
+
+"---------------
+" Vimfiler
+"---------------
+"autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
+""vim立ち上げのdefaltをvimfilerに
+"let g:vimfiler_as_default_explorer = 1
+"let g:vimfiler_safe_mode_by_default=0
+"let g:netrw_liststyle=3
+
+"---------------
+" Unite
+"---------------
+let g:unite_enable_start_insert = 1
+let g:unite_source_grep_max_candidates = 200
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
+
+nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir file/new -buffer-name=files bookmark file<CR>
+nnoremap <silent> [unite]r   :<C-u>Unite file/new -buffer-name=files file_rec file<CR>
+nnoremap <silent> [unite]h   :<C-u>Unite file_mru <CR>
+nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]g   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+"---------------
+" vimshell
+"---------------
+nnoremap <C-i> :<C-u>VimShell<CR>
+nnoremap <silent> sh :<C-u>VimShell<CR>
+
+
+" カーソル位置を目立たせる
+set cursorline
+set cursorcolumn
+
+highlight CursorLine ctermbg=254
+highlight CursorLine ctermfg=232
+
+highlight CursorColumn ctermbg=254
+highlight CursorColumn ctermfg=232
+
+"---------------
+" Basic settings
+"---------------
 
 " OSのクリップボードをレジスタ指定無しで Yank, Put 出来るようにする
 set clipboard=unnamed,unnamedplus
@@ -141,242 +383,3 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-"オートCD
-au BufEnter * execute ":lcd " . expand("%:p:h")
-
-
-"---------------
-" キーマップ
-"---------------
-" visualモードでC-cでコピー
-vnoremap <C-c> y:call system("pbcopy", getreg("\""))<CR>
-
-" normalモードで貼り付け
-nnoremap <Space><C-v> :call setreg("\"",system("pbpaste"))<CR>p
-
-" 最後に変更した場所へ戻る
-map <C-m> `.
-
-" Emacs キーバインド
-cmap <C-a> <Home>
-cmap <C-e> <End>
-nnoremap <C-a> <Home>
-nnoremap <C-e> <End>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-
-nnoremap <D-¥> \
-nnoremap <C-k> d$i
-
-"表示行単位で移動
-nnoremap j gj
-nnoremap k gk
-
-"ファイルの文字コードを変更
-nmap ,U :set fileencoding=utf-8<CR>
-nmap ,E :set fileencoding=euc-jp<CR>
-nmap ,S :set fileencoding=cp932<CR>
-
-"ファイルの文字コードを指定して開き直す
-nmap =U :e ++enc=utf8<CR>
-nmap =S :e ++enc=sjis<CR>
-nmap =E :e ++enc=euc-jp<CR>
-nmap =J :e ++enc=iso-2022-jp<CR>
-
-"ファイルの改行コードを変更
-nmap ,W :set ff=dos<CR>
-nmap ,L :set ff=unix<CR>
-
-"<Esc>を簡単に
-inoremap <C-j> <Esc>
-vnoremap <C-[> <Esc>
-
-"---------------
-" ファイルタイプ設定
-"---------------
-
-" augroup FileTypeDetect
-"   autocmd!
-"   autocmd BufRead,BufNewFile Capfile,Gemfile      setfiletype ruby
-"   autocmd BufRead,BufNewFile *.json               setfiletype javascript
-"   autocmd BufRead,BufNewFile *.coffee             setfiletype coffee
-"   autocmd BufRead,BufNewFile *.md                 setfiletype markdown
-"   autocmd BufRead,BufNewFile *.pp                 setfiletype puppet
-"   autocmd BufRead,BufNewFile *.scss               setfiletype scss
-" augroup END
-"
-" augroup FileTypePlugin
-"   autocmd!
-" autocmd FileType int-pry    setlocal nonu
-"   autocmd FileType int-python setlocal nonu
-"   autocmd FileType java       setlocal ts=4 sts=4 sw=4
-"   autocmd FileType javascript setlocal ts=2 sts=2 sw=2
-"   autocmd FileType ruby       setlocal ts=2 sts=2 sw=2
-"   autocmd FileType python     setlocal ts=4 sts=4 sw=4 si cinw=if,elif,else,for,while,try,except,finally,def,class
-"   autocmd FileType vim        setlocal ts=2 sts=2 sw=2
-"   autocmd FileType html       setlocal ts=2 sts=2 sw=2
-"   autocmd FileType scss       setlocal ts=2 sts=2 sw=2
-"   autocmd FileType css        setlocal ts=2 sts=2 sw=2
-"   autocmd FileType markdown   setlocal tw=0
-"   " autocmd FileType vimfiler   setlocal nonu
-"   autocmd FileType vimshell   setlocal nonu
-" augroup END
-
-
-"---------------
-" NeoBundle
-"---------------
-
-filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-let g:neobundle_default_git_protocol='https'
-
-" originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'Railscasts-Theme-GUIand256color'
-NeoBundle 'osyo-manga/vim-sound'
-NeoBundle 'lim-template/vim-slim'
-" NeoBundle 'Shougo/vimfiler'
-" NeoBundle 'tpope/vim-ragtag'
-" NeoBundle 'kchmck/vim-coffee-script'
-
-filetype plugin indent on
-filetype indent on
-
-
-"---------------
-" カラーリング
-"---------------
-
-"256色を使う
-set t_Co=256
-
-"シンタックスカラー表示を有効にする
-syntax on
-
-"カラーテーマ
-colorscheme railscasts
-
-"補完候補の色づけ for vim7
-hi Pmenu ctermbg=255 ctermfg=0 guifg=#000000 guibg=#999999
-hi PmenuSel ctermbg=blue ctermfg=black
-hi PmenuSbar ctermbg=0 ctermfg=9
-hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
-
-"---------------
-" Neocomplcache
-"---------------
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_auto_completion_start_length = 2
-let g:neocomplcache_enable_auto_select = 1
-
-""Plugin key-mappings.
-" imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-" smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g> neocomplcache#undo_completion()
-" inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-""Recommended key-mappings.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><C-h> neocomplcache#smart_close_popup().”\<C-h>”
-" inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-" inoremap <expr><C-e> neocomplcache#cancel_popup()
-
-
-"---------------
-" MiniBufExplorer
-"---------------
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplSplitToEdge = 1
-let g:miniBufExplCycleArround = 1
-
-""GNU screen likeなキーバインド
-" let mapleader = ""
-" nmap <S-Space> :MBEbp<CR>
-nmap <Space> :MBEbn<CR>
-nmap <C-n> :MBEbp<CR>
-nmap <C-p> :MBEbn<CR>
-" nnoremap <C-X><C-N> :new<CR>
-" nnoremap <C-X><C-K> :bd<CR>
-" let mapleader = '\'
-
-
-"---------------
-" RagTag
-"---------------
-
-" let g:ragtag_global_maps = 1
-
-
-"---------------
-" VimSound
-"---------------
-
-
-"---------------
-" Vimfiler
-"---------------
-"autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
-""vim立ち上げのdefaltをvimfilerに
-"let g:vimfiler_as_default_explorer = 1
-"let g:vimfiler_safe_mode_by_default=0
-"let g:netrw_liststyle=3
-
-"---------------
-" Unite
-"---------------
-let g:unite_enable_start_insert = 1
-let g:unite_source_grep_max_candidates = 200
-""grep
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-nnoremap <silent> sg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> scg :<C-u>Unite grep:.  -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ss :<C-u>Unite -buffer-name=files file_rec file<CR>
-nnoremap <silent> sb :<C-u>Unite -buffer-name=file_rec buffer_tab buffer file_mru<CR>
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('tabopen')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" unite grep に ag(The Silver Searcher) を使う
-
-"---------------
-" vimshell
-"---------------
-nnoremap <C-i> :<C-u>VimShell<CR>
-nnoremap <silent> sh :<C-u>VimShell<CR>
-
-
-" カーソル位置を目立たせる
-set cursorline
-set cursorcolumn
-
-highlight CursorLine ctermbg=254
-highlight CursorLine ctermfg=232
-
-highlight CursorColumn ctermbg=254
-highlight CursorColumn ctermfg=232
