@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 #oh-my-zsh終わり
 ################################
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
 # Extend ls command
 alias ls="ls -GAF"
 
