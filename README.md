@@ -4,6 +4,13 @@
 % ./install.sh
 ```
 
+# Homebrew
+
+```
+% brew bundle ~/.Brewfile
+```
+
+
 # Install OhMyZsh
 
 ```
