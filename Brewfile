@@ -35,8 +35,8 @@ install npm
 install python3
 
 #R
-tap homebrew/science
-install r
+#tap homebrew/science
+cask install r
 
 # App
 cask install google-chrome
