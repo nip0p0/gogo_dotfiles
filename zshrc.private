@@ -2,15 +2,14 @@ alias develop="cd /Users/gogo/develop"
 alias ssm="/Users/gogo/develop/rails/ssm_game_app"
 alias gam="git add .;git commit -m 'fix'"
 
-# java
-# alias javac='javac -J-Dfile.encoding=UTF-8'
-# alias java='java -Dfile.encoding=UTF-8'
-export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+# Homebrew
+export PATH=/usr/local/bin:$PATH
 
-# rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
+# java
+# export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+
+# Ruby
+eval "$(rbenv init -)")
 alias be='bundle exec'
 
 # nodenv
