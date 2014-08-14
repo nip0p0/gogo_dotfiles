@@ -1,6 +1,6 @@
 alias develop="cd /Users/gogo/develop"
 alias ssm="/Users/gogo/develop/rails/ssm_game_app"
-
+alias gam="git add .; git commit -m 'Fix something'"
 # java
 # alias javac='javac -J-Dfile.encoding=UTF-8'
 # alias java='java -Dfile.encoding=UTF-8'
@@ -29,4 +29,4 @@ export PATH=/usr/local/mongodb-2.4/bin:$PATH
 # phantomjs
 export PATH=/usr/local/phantomjs/bin:$PATH
 
-
+. `brew --prefix`/etc/profile.d/z.sh
