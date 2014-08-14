@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 #oh-my-zsh終わり
 ################################
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
 # Extend ls command
 alias ls="ls -GAF"
 
@@ -128,3 +131,4 @@ fi
 # zle -N cdup
 # bindkey '\^' cdup
 #}
+export NODE_PATH=/usr/local/lib/node_modules
