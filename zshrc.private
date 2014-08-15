@@ -7,7 +7,7 @@ export PATH=/usr/local/bin:$PATH
 # export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 
 # Ruby
-eval "$(rbenv init -)")
+eval "$(rbenv init -)"
 alias be='bundle exec'
 
 # nodenv
