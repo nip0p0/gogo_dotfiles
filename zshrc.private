@@ -1,6 +1,4 @@
-alias develop="cd /Users/gogo/develop"
-alias ssm="/Users/gogo/develop/rails/ssm_game_app"
-alias gam="git add .;git commit -m 'fix'"
+alias gam="git add .; git commit -m 'Fix something'"
 
 # Homebrew
 export PATH=/usr/local/bin:$PATH
@@ -30,5 +28,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # export PATH=/usr/local/phantomjs/bin:$PATH
 
 # octorver
-export PATH=/usr/texbin:$PATH
+# export PATH=/usr/texbin:$PATH
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh

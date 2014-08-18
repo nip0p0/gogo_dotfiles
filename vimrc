@@ -220,8 +220,8 @@ let g:unite_source_grep_max_candidates = 200
 nnoremap [unite]    <Nop>
 nmap     <Space>u [unite]
 
-nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir file/new -buffer-name=files bookmark file<CR>
-nnoremap <silent> [unite]r   :<C-u>Unite file/new -buffer-name=files file_rec file<CR>
+nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir -buffer-name=files file file/new<CR>
+nnoremap <silent> [unite]r   :<C-u>Unite -buffer-name=files file file_rec file/new<CR>
 nnoremap <silent> [unite]h   :<C-u>Unite file_mru <CR>
 nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]g   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
