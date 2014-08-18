@@ -1,5 +1,8 @@
 # basic
-export LANG=ja_JP.UTF-8
+#export LANG=ja_JP.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 autoload -U compinit
 compinit -u
 autoload -U colors
@@ -76,17 +79,6 @@ setopt NO_beep
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# # Colorize
-# export ZLS_COLORS=$LS_COLORS
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# screen
-# if [ $TERM = "screen" ]; then
-#   preexec() {
-#     echo -ne "\ek$1\e\\"
-#   }
-# fi
-
 # cdd
 if [ -f /usr/local/bin/cdd ]; then
   source /usr/local/bin/cdd
@@ -99,36 +91,9 @@ fi
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
 
 
-## git
-#autoload -Uz vcs_info
-
 ## バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 # RPROMPT="%1(v|%F{green}%1v%f|)"
 
-## プロンプト表示形式
-#PROMPT="%n%% "
-
-# 表示フォーマットの指定
-# %b ブランチ情報
-# %a アクション名(mergeなど)
-# zstyle ':vcs_info:*' formats '[%b]'
-# zstyle ':vcs_info:*' actionformats '[%b|%a]'
-#precmd () {
-#  if [ $TERM = "screen" ]; then
-#    echo -ne "\ek$(basename $SHELL)\e\\"
-#  fi
-#  psvar=()
-#  LANG=ja_JP.UTF-8 vcs_info
-#  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-#
-## ｢^｣キーを押すと, どんどん上のディレクトリーに動く
-# ｢^｣自体を打ちたい時はctrl-Vの後に^
-# function cdup() {
-#   echo
-#   cd ..
-#   zle reset-prompt
-# }
-# zle -N cdup
-# bindkey '\^' cdup
-#}
 export NODE_PATH=/usr/local/lib/node_modules
+
+alias postgres='postgres -D /usr/local/var/postgres'
