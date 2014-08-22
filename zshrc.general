@@ -1,0 +1,24 @@
+alias gam="git add .; git commit -m 'Fix something'"
+alias posgre='postgres -D /usr/local/var/postgres'
+
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+
+# Ruby
+eval "$(rbenv init -)"
+alias be='bundle exec'
+
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
+# Node.js
+export NODE_PATH=/usr/local/lib/node_modules
+
+# java
+# export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+
+# phantomjs
+# export PATH=/usr/local/phantomjs/bin:$PATH
+
+# octorver
+# export PATH=/usr/texbin:$PATH

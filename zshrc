@@ -25,10 +25,10 @@ source $ZSH/oh-my-zsh.sh
 # Extend ls command
 alias ls="ls -GAF"
 
-# Emacsキーバインド
+# Emacs key bind
 bindkey -e
 
-# 履歴
+# History
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -90,10 +90,9 @@ fi
 # 環境ごと
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
 
+# general
+[ -f ~/.zshrc.general ] && source ~/.zshrc.general
+
 
 ## バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 # RPROMPT="%1(v|%F{green}%1v%f|)"
-
-export NODE_PATH=/usr/local/lib/node_modules
-
-alias postgres='postgres -D /usr/local/var/postgres'
