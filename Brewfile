@@ -10,6 +10,7 @@ tap phinze/homebrew-cask || true
 install brew-cask
 
 install z
+install imagemagick
 
 #DB
 install mysql
