@@ -11,6 +11,7 @@ install brew-cask
 
 install z
 install imagemagick
+install tree
 
 #DB
 install mysql
