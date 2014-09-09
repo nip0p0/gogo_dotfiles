@@ -12,6 +12,7 @@ install brew-cask
 install z
 install imagemagick
 install tree
+install cmake
 
 #DB
 install mysql
