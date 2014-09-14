@@ -14,6 +14,8 @@ install imagemagick
 install tree
 install cmake
 install w3m
+tap peco/peco
+install peco
 
 #DB
 install mysql
