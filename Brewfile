@@ -15,6 +15,7 @@ install tree
 install cmake
 install w3m
 install ansible
+install phantomjs
 tap peco/peco
 install peco
 
