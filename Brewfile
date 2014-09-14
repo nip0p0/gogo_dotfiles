@@ -14,6 +14,7 @@ install imagemagick
 install tree
 install cmake
 install w3m
+install ansible
 tap peco/peco
 install peco
 
