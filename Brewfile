@@ -9,13 +9,14 @@ tap phinze/homebrew-cask || true
 
 install brew-cask
 
-install z
-install imagemagick
-install tree
-install cmake
-install w3m
 install ansible
+install cmake
+install imagemagick
 install phantomjs
+install tree
+install w3m
+install z
+
 tap peco/peco
 install peco
 
