@@ -1,0 +1,10 @@
+# General
+alias refresh='source ~/.zshrc'
+alias ls="ls -GAFa"
+alias lsl="ls -GAFal"
+alias g='git'
+
+
+alias be='bundle exec'
+alias gam="git add .; git commit -m 'Fix something'"
+alias posgre='postgres -D /usr/local/var/postgres'

@@ -1,15 +1,14 @@
-alias gam="git add .; git commit -m 'Fix something'"
-alias posgre='postgres -D /usr/local/var/postgres'
-
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 
 # Ruby
 eval "$(rbenv init -)"
-alias be='bundle exec'
 
 # z
 . `brew --prefix`/etc/profile.d/z.sh
+
+# Mysqlenv
+source ~/.mysqlenv/etc/bashrc
 
 # Node.js
 export NODE_PATH=/usr/local/lib/node_modules

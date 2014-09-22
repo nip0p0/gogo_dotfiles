@@ -1,38 +1,36 @@
-# basic
+# Password and all
+[ -f ~/.zshrc.private ] && source ~/.zshrc.private
+
+# General
+[ -f ~/.zshrc.general ] && source ~/.zshrc.general
+
+# Aliases
+[ -f ~/.zshrc.aliases ] && source ~/.zshrc.aliases
+
+# Basis
 #export LANG=ja_JP.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-autoload -U compinit
-compinit -u
-autoload -U colors
-colors
 
-###################################################
-# 以下oh-my-zsh
+# Complement command and its options
+autoload -Uz compinit
+compinit
 
+# oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
-
 ZSH_THEME="miloshadzic"
-
 source $ZSH/oh-my-zsh.sh
-#oh-my-zsh終わり
-################################
-
-# z
-. `brew --prefix`/etc/profile.d/z.sh
-
-# Extend ls command
-alias ls="ls -GAF"
-
-# Emacs key bind
-bindkey -e
 
 # History
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=1000
 SAVEHIST=1000
 export HISTIGNORE=ls:pwd
+
+# Emacs key bind
+bindkey -e
+
 
 # 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
 setopt append_history
@@ -78,21 +76,3 @@ setopt NO_beep
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# cdd
-if [ -f /usr/local/bin/cdd ]; then
-  source /usr/local/bin/cdd
-  chpwd() {
-    _cdd_chpwd
-  }
-fi
-
-# 環境ごと
-[ -f ~/.zshrc.private ] && source ~/.zshrc.private
-
-# general
-[ -f ~/.zshrc.general ] && source ~/.zshrc.general
-
-
-## バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
-# RPROMPT="%1(v|%F{green}%1v%f|)"
