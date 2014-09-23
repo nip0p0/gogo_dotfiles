@@ -25,9 +25,12 @@
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
   new-branch = !git fetch --prune | git checkout origin/develop -b
+  clear = !git reset --hard | git clean -df
+
   b = branch -a
   br = browse-remote
   ci = commit
+  cim = commit -m
   co = checkout
   d = diff
   dc = diff --cached
