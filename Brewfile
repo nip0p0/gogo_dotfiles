@@ -53,6 +53,7 @@ cask install r
 cask install google-chrome
 cask install dropbox
 cask install evernote
+cask install iterm2
 cask install skype
 
 tap 'komagata/mycask'
