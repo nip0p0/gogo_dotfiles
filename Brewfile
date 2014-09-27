@@ -17,6 +17,9 @@ install tree
 install w3m
 install z
 
+#Linux Command
+install pidof
+
 tap peco/peco
 install peco
 
