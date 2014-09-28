@@ -14,6 +14,7 @@ install cmake
 install imagemagick
 install phantomjs
 install tree
+install wget
 install w3m
 install z
 
