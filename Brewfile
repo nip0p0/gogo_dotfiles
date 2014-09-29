@@ -15,8 +15,12 @@ install imagemagick
 install phantomjs
 install pow
 install tree
+install wget
 install w3m
 install z
+
+#Linux Command
+install pidof
 
 tap peco/peco
 install peco
@@ -54,6 +58,7 @@ cask install r
 cask install google-chrome
 cask install dropbox
 cask install evernote
+cask install iterm2
 cask install skype
 
 tap 'komagata/mycask'
