@@ -13,6 +13,7 @@ install ansible
 install cmake
 install imagemagick
 install phantomjs
+install pow
 install tree
 install w3m
 install z
