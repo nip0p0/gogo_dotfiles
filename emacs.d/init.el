@@ -1,9 +1,14 @@
-;Basis
-
+; Third party
+;; install-elisp
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 (require 'install-elisp)
 (setq install-elisp-repository-directory "~/.emacs.d/elisp/")
 
+;; auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+; Basis
 (set-default-coding-systems 'utf-8)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
@@ -41,12 +46,6 @@
 
 (global-set-key (kbd "C-S-o")
                 "my/insert-line-before")
-
-;; Marmalade setting
-(require 'package)
-(add-to-list 'package-archives
-                 '("marmalade" .
-                         "http://marmalade-repo.org/packages/"))
 
 ; Highlight current row
 (defface hlline-face
