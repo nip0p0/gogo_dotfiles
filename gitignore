@@ -2,3 +2,6 @@
 /vendor/bundle
 .ruby-version
 config/database.yml
+
+emacs.d/elpa
+emacs.d/ac-comphist.dat

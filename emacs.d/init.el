@@ -1,9 +1,15 @@
-; Third party
-;; install-elisp
-;(setq load-path (cons "~/.emacs.d/elisp" load-path))
-;(require 'install-elisp)
-;(setq install-elisp-repository-directory "~/.emacs.d/elisp/")
+;;; gogodotfiles --- Gogo
 
+;; Copyright (C) 2014  Gogo Tanaka
+
+;;; Commentary:
+;; gogo
+
+;;; Code:
+
+
+;;;; Third party
+;; install-elisp
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -22,9 +28,42 @@
 (key-combo-define-global (kbd ">") '(" > " " => "))
 (key-combo-define-global (kbd "<") '(" < " " =< "))
 
-
+;; Helm
 (require 'helm-config)
 (helm-mode 1)
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;(global-set-key (kbd "M-p") "flycheck-previous-error")
+;(global-set-key (kbd "M-n") "flycheck-next-error")
+(global-set-key  "\M-p" 'flycheck-previous-error)
+(global-set-key  "\M-n" 'flycheck-next-error)
+
+
+;; flycheck-pos-tip
+(eval-after-load 'flycheck
+  '(custom-set-variables
+   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)
+(set-face-attribute 'mode-line nil
+                    :foreground "#fff"
+                    :background "#FF0066"
+                    :box nil)
+
+(set-face-attribute 'powerline-active1 nil
+                    :foreground "#fff"
+                    :background "#FF6699"
+                    :inherit 'mode-line)
+
+(set-face-attribute 'powerline-active2 nil
+                    :foreground "#000"
+                    :background "#ffaeb9"
+                    :inherit 'mode-line)
 
 
 ;(require 'ruby-electric)
@@ -70,6 +109,8 @@
 (global-set-key (kbd "\C-O")
                 "my/insert-line-before")
 
+
+
 ; Highlight current row
 (defface hlline-face
   '((((class color)
@@ -83,3 +124,5 @@
   "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
 (global-hl-line-mode)
+
+;;; init.el ends here
