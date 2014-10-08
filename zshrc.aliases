@@ -7,4 +7,5 @@ alias g='git'
 
 alias be='bundle exec'
 alias gam="git add .; git commit -m 'Fix something'"
-alias posgre='postgres -D /usr/local/var/postgres'
+alias pg='postgres -D /usr/local/var/postgres'
+alias mongod='mongod --config /usr/local/etc/mongod.conf'
