@@ -35,6 +35,10 @@
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; Helm-projectile
+;(add-hook 'ruby-mode-hook 'helm-projectile)
+(global-set-key "\C-t" 'helm-projectile)
+
 ;(global-set-key (kbd "M-p") "flycheck-previous-error")
 ;(global-set-key (kbd "M-n") "flycheck-next-error")
 (global-set-key  "\M-p" 'flycheck-previous-error)
@@ -50,26 +54,12 @@
 ;; powerline
 (require 'powerline)
 (powerline-default-theme)
-(set-face-attribute 'mode-line nil
-                    :foreground "#fff"
-                    :background "#FF0066"
-                    :box nil)
-
-(set-face-attribute 'powerline-active1 nil
-                    :foreground "#fff"
-                    :background "#FF6699"
-                    :inherit 'mode-line)
-
-(set-face-attribute 'powerline-active2 nil
-                    :foreground "#000"
-                    :background "#ffaeb9"
-                    :inherit 'mode-line)
+(setq powerline-arrow-shape 'curve)
 
 
 ;(require 'ruby-electric)
 
 ; Basis
-(set-default-coding-systems 'utf-8)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
@@ -90,6 +80,8 @@
 (global-set-key "\C-h" 'delete-backward-char)
 ;(global-set-key "\C-m" 'newline-and-indent)
 (global-set-key  "\C-j" 'newline)
+;(global-set-key (kbd "C-u") "C-_")
+(global-set-key "\C-u" 'undo)
 
 ; same for M-x linum-mode
 (global-linum-mode t)
@@ -106,9 +98,8 @@
     (move-beginning-of-line 1)
 		(newline)))
 
-(global-set-key (kbd "\C-O")
-                "my/insert-line-before")
 
+(global-set-key  "\C-O" 'my/insert-line-before)
 
 
 ; Highlight current row
