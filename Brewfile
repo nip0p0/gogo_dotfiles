@@ -60,6 +60,7 @@ cask install dropbox
 cask install evernote
 cask install iterm2
 cask install skype
+cask install rstudio
 
 tap 'komagata/mycask'
 cask install line
