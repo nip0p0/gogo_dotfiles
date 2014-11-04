@@ -45,7 +45,7 @@ install scala
 install sbt
 
 #Node
-install npm
+install node
 
 #Python
 install python3
