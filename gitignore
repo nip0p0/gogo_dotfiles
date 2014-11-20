@@ -6,3 +6,7 @@ config/database.yml
 emacs.d/elpa
 emacs.d/auto-save-list
 emacs.d/ac-comphist.dat
+
+atom/packages
+atom/compile-cache
+atom/storage
