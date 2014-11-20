@@ -1,0 +1,8 @@
+apm install ask-stac 
+apm install minimap
+apm install script
+apm install sublime-style-column-selection
+apm install atom-color-highlight
+
+# appearance
+apm install file-icons
