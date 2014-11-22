@@ -10,3 +10,6 @@ alias gam="git add .; git commit -m 'Fix something'"
 alias pg='postgres -D /usr/local/var/postgres'
 alias mongod='mongod --config /usr/local/etc/mongod.conf'
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
+
+alias atm='atom .'
+
