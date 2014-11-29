@@ -10,6 +10,9 @@ eval "$(rbenv init -)"
 # Mysqlenv
 source ~/.mysqlenv/etc/bashrc
 
+# Cabal
+export PATH=$HOME/.cabal/bin:$PATH
+
 # Node.js
 
 # java
