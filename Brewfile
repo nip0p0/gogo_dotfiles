@@ -58,9 +58,11 @@ cask install r
 cask install google-chrome
 cask install dropbox
 cask install evernote
-cask install iterm2
+# cask install iterm2
 cask install skype
 cask install rstudio
+cask install Paintbrush
+cask install atomm
 
 tap 'komagata/mycask'
 cask install line
