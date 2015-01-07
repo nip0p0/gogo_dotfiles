@@ -14,5 +14,7 @@
     'showIndentGuide': true
     'showInvisibles': true
     'softWrap': true
+    'autoIndentOnPaste': false
+    'fontSize': 14
   'whitespace':
     'ignoreWhitespaceOnCurrentLine': false

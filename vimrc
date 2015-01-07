@@ -1,62 +1,85 @@
-""""""""""""""""""""""""""""""
-" 自動的に閉じ括弧を入力
-" """"""""""""""""""""""""""""""
-"imap { {}<LEFT>
-"imap [ []<LEFT>
-"imap ( ()<LEFT>
-" """"""""""""""""""""""""""""""
-"オートCD
-au BufEnter * execute ":lcd " . expand("%:p:h")
+"---------------
+" NeoBundle
+"---------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+
+  " Required:
+  set runtimepath+=/Users/gogo/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('/Users/gogo/.vim/bundle'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+filetype plugin indent on
+
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Railscasts-Theme-GUIand256color'
+NeoBundle 'osyo-manga/vim-sound'
+NeoBundle 'Lokaltog/vim-powerline'
+
+" neosnippet-snippets
+" NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/neomru.vim'
+" NeoBundle 'Shougo/vimproc'
+" NeoBundle 'fholgado/minibufexpl.vim'
+" NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'tpope/vim-endwise'
+" NeoBundle 'Shougo/vimfiler'
+" NeoBundle 'tpope/vim-ragtag'
+" NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'tpope/vim-fugitive'
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 
 "---------------
-" キーマップ
+" Key map
 "---------------
-" Sync pbpaste 
+"
+" Sync pbpaste
 vnoremap y y:call system("pbcopy", getreg("\""))<CR>
 nnoremap yy yy:call system("pbcopy", getreg("\""))<CR>
 
-" 最後に変更した場所へ戻る
-map <Space>m `.
-nnoremap <Space>/  *
+" Move to code edited latest
+map <Space>l `.
+
 " Search parenthesis
 noremap <Space>p  %
-nnoremap <D-¥> \
 
-" Emacs keybind 
+" Emacs keybind
 cmap <C-a> <Home>
 cmap <C-e> <End>
 nnoremap <C-a> <Home>
 nnoremap <C-e> <End>
+nnoremap <C-k> d$ d:call system("pbcopy", getreg("\""))<CR>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-nnoremap <C-k> d$i
+inoremap <C-k> d$a
 
-
-"表示行単位で移動
+" Move by line
 nnoremap j gj
 nnoremap k gk
 
-"ファイルの文字コードを変更
+" Change file encoding
 nmap ,U :set fileencoding=utf-8<CR>
 nmap ,E :set fileencoding=euc-jp<CR>
 nmap ,S :set fileencoding=cp932<CR>
 
-"ファイルの文字コードを指定して開き直す
+" Reopen file with specifying encoding
 nmap =U :e ++enc=utf8<CR>
 nmap =S :e ++enc=sjis<CR>
 nmap =E :e ++enc=euc-jp<CR>
 nmap =J :e ++enc=iso-2022-jp<CR>
 
-"ファイルの改行コードを変更
-nmap ,W :set ff=dos<CR>
-nmap ,L :set ff=unix<CR>
-
-"<Esc>を簡単に
-inoremap <C-j> <Esc>
-vnoremap <C-[> <Esc>
-
 "---------------
-" ファイルタイプ設定
+" Filetype
 "---------------
 
  augroup FileTypeDetect
@@ -87,18 +110,11 @@ vnoremap <C-[> <Esc>
  augroup END
 
 "---------------
-" color 
+" color
 "---------------
-
-"256色を使う
 set t_Co=256
-
-"シンタックスカラー表示を有効にする
 syntax on
-
-"カラーテーマ
 colorscheme railscasts
-
 hi LineNr ctermbg=black guifg=#FFFFFF
 
 "補完候補の色づけ for vim7
@@ -109,45 +125,8 @@ hi PmenuSbar ctermbg=255 ctermfg=0 guifg=#000000 guibg=#FFFFFF
 
 
 "---------------
-" NeoBundle
-"---------------
-
-filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-let g:neobundle_default_git_protocol='https'
-
-" originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-" NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'Railscasts-Theme-GUIand256color'
-NeoBundle 'osyo-manga/vim-sound'
-NeoBundle 'Lokaltog/vim-powerline'
-" make indent look good
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'lim-template/vim-slim'
-" NeoBundle 'tpope/vim-endwise'
-" NeoBundle 'Shougo/vimfiler'
-" NeoBundle 'tpope/vim-ragtag'
-" NeoBundle 'kchmck/vim-coffee-script'
-" NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'tpope/vim-fugitive'
-filetype plugin indent on
-filetype indent on
-
-"---------------
 " Neocomplcache
 "---------------
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
@@ -176,7 +155,6 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 "---------------
 " MiniBufExplorer
 "---------------
-
 " let g:miniBufExplMapWindowNavVim = 1
 " let g:miniBufExplMapWindowNavArrows = 1
 " let g:miniBufExplMapCTabSwitchBufs = 1
@@ -186,22 +164,19 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 
 ""GNU screen likeなキーバインド
 " nmap <S-Space> :MBEbp<CR>
-nmap <C-n> :MBEbp<CR>
-nmap <C-p> :MBEbn<CR>
+" nmap <C-n> :MBEbp<CR>
+" nmap <C-p> :MBEbn<CR>
 " nnoremap <C-X><C-N> :new<CR>
 " nnoremap <C-X><C-K> :bd<CR>
 
 "---------------
 " RagTag
 "---------------
-
 " let g:ragtag_global_maps = 1
-
 
 "---------------
 " VimSound
 "---------------
-
 
 "---------------
 " Vimfiler
@@ -215,22 +190,33 @@ nmap <C-p> :MBEbn<CR>
 "---------------
 " Unite
 "---------------
-let g:unite_enable_start_insert = 1
-let g:unite_source_grep_max_candidates = 200
-nnoremap [unite]    <Nop>
-nmap     <Space>u [unite]
-
-nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir -buffer-name=files file file/new<CR>
-nnoremap <silent> [unite]r   :<C-u>Unite -buffer-name=files file file_rec file/new<CR>
-nnoremap <silent> [unite]h   :<C-u>Unite file_mru <CR>
-nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]g   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" let g:unite_enable_start_insert = 1
+" let g:unite_source_grep_max_candidates = 200
+" nnoremap [unite]    <Nop>
+" nmap     <Space>u [unite]
+" 
+" nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir -buffer-name=files file file/new<CR>
+" nnoremap <silent> [unite]r   :<C-u>Unite -buffer-name=files file file_rec file/new<CR>
+" nnoremap <silent> [unite]h   :<C-u>Unite file_mru <CR>
+" nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
+" nnoremap <silent> [unite]g   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 "---------------
 " vimshell
 "---------------
-nnoremap <C-i> :<C-u>VimShell<CR>
-nnoremap <silent> sh :<C-u>VimShell<CR>
+" nnoremap <C-i> :<C-u>VimShell<CR>
+" nnoremap <silent> sh :<C-u>VimShell<CR>
+
+
+"""""""""""""""""""""""""""""
+" 自動的に閉じ括弧を入力
+" """"""""""""""""""""""""""""""
+"imap { {}<LEFT>
+"imap [ []<LEFT>
+"imap ( ()<LEFT>
+" """"""""""""""""""""""""""""""
+"オートCD
+au BufEnter * execute ":lcd " . expand("%:p:h")
 
 
 " カーソル位置を目立たせる
@@ -353,7 +339,7 @@ set diffexpr=MyDiff()
 "長い行を折り返さない
 "set nowrap
 
-"ペースト時にオートインデントを無効に 
+"ペースト時にオートインデントを無効に
 "set paste
 "---------------
 " デフォルト設定
@@ -382,4 +368,3 @@ function MyDiff()
   endif
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
-

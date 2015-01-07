@@ -10,7 +10,7 @@
 [core]
   excludesfile = ~/.gitignore
   pager = less -r
-  editor = emacs
+  editor = vim
 [push]
   default = current
 [merge]

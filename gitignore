@@ -10,3 +10,8 @@ emacs.d/ac-comphist.dat
 atom/packages
 atom/compile-cache
 atom/storage
+.sass-cache/
+vendor/bundle/
+
+*.o
+*.hi
