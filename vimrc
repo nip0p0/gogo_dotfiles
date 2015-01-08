@@ -18,34 +18,38 @@ filetype plugin indent on
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Railscasts-Theme-GUIand256color'
 NeoBundle 'osyo-manga/vim-sound'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Lokaltog/powerline-fontpatcher'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Lokaltog/vim-powerline'
 
 " neosnippet-snippets
-" NeoBundle 'Shougo/unite.vim'
 " NeoBundle 'Shougo/neomru.vim'
 " NeoBundle 'Shougo/vimproc'
 " NeoBundle 'fholgado/minibufexpl.vim'
-" NeoBundle 'nathanaelkane/vim-indent-guides'
 " NeoBundle 'tpope/vim-endwise'
 " NeoBundle 'Shougo/vimfiler'
 " NeoBundle 'tpope/vim-ragtag'
-" NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'tpope/vim-fugitive'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-
 "---------------
 " Key map
 "---------------
-"
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 " Sync pbpaste
 vnoremap y y:call system("pbcopy", getreg("\""))<CR>
 nnoremap yy yy:call system("pbcopy", getreg("\""))<CR>
+vnoremap d d:call system("pbcopy", getreg("\""))<CR>
+nnoremap dd dd:call system("pbcopy", getreg("\""))<CR>
 
 " Move to code edited latest
 map <Space>l `.
@@ -54,13 +58,11 @@ map <Space>l `.
 noremap <Space>p  %
 
 " Emacs keybind
-cmap <C-a> <Home>
-cmap <C-e> <End>
-nnoremap <C-a> <Home>
-nnoremap <C-e> <End>
-nnoremap <C-k> d$ d:call system("pbcopy", getreg("\""))<CR>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
+noremap <C-a> <Home>
+noremap <C-e> <End>
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+nnoremap <C-k> d$ d:call system("pbcopy", getreg("\""))
 inoremap <C-k> d$a
 
 " Move by line
@@ -151,7 +153,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-y> neocomplcache#close_popup()
 " inoremap <expr><C-e> neocomplcache#cancel_popup()
 
-
+"---------------
+" vim-indent-guide
+"---------------
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_guide_size=1
+" let g:indent_guides_auto_colors=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=8
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=15
 "---------------
 " MiniBufExplorer
 "---------------
@@ -179,27 +188,25 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 "---------------
 
 "---------------
-" Vimfiler
+" nerdtree
 "---------------
-"autocmd VimEnter * VimFiler -split -simple -winwidth=30 -no-quit
-""vim立ち上げのdefaltをvimfilerに
-"let g:vimfiler_as_default_explorer = 1
-"let g:vimfiler_safe_mode_by_default=0
-"let g:netrw_liststyle=3
+nnoremap <silent> <Space>n :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
+let g:NERDTreeDirArrows=0
 
 "---------------
 " Unite
 "---------------
-" let g:unite_enable_start_insert = 1
-" let g:unite_source_grep_max_candidates = 200
-" nnoremap [unite]    <Nop>
-" nmap     <Space>u [unite]
-" 
-" nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir -buffer-name=files file file/new<CR>
-" nnoremap <silent> [unite]r   :<C-u>Unite -buffer-name=files file file_rec file/new<CR>
-" nnoremap <silent> [unite]h   :<C-u>Unite file_mru <CR>
-" nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
-" nnoremap <silent> [unite]g   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_grep_max_candidates = 200
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
+
+nnoremap <silent> [unite]y   :<C-u>Unite history/yank<CR> 
+nnoremap <silent> [unite]b   :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]s   :<C-u>UniteWithCurrentDir -buffer-name=files file file/new<CR>
+nnoremap <silent> [unite]r   :<C-u>Unite -buffer-name=files file file_rec file/new<CR>
 
 "---------------
 " vimshell
