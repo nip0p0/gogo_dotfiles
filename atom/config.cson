@@ -1,4 +1,4 @@
-'global':
+'*':
   'exception-reporting':
     'userId': '5325f40d-2b1b-1647-2dec-e0a2182f7171'
   'welcome':
@@ -11,10 +11,10 @@
       'railscast-theme'
     ]
   'editor':
-    'showIndentGuide': true
+    'fontSize': 12
     'showInvisibles': true
-    'softWrap': true
+    'showIndentGuide': true
     'autoIndentOnPaste': false
-    'fontSize': 14
+    'softWrap': true
   'whitespace':
     'ignoreWhitespaceOnCurrentLine': false
