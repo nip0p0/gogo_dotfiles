@@ -63,7 +63,7 @@ cask install skype
 cask install rstudio
 cask install Paintbrush
 cask install atomm
-
+cask install firefox
 tap 'komagata/mycask'
 cask install line
 cask install gyazo
