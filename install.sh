@@ -18,14 +18,12 @@ for name in *; do
   fi
 done
 
-# Install NeoBundle
-
-if [ ! -d $HOME/.vim/bundle/neobundle.vim ]
-then
-  git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
-fi
-
 # Install vim color scheme
 mkdir -p ~/.vim/colors/
 cp ./vim_color/railscasts.vim ~/.vim/colors/
 
+# Install NeoBundle
+if [ ! -d $HOME/.vim/bundle/neobundle.vim ]
+then
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+fi

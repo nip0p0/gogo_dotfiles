@@ -11,6 +11,8 @@ install brew-cask
 
 install ansible
 install cmake
+install fish
+install git
 install imagemagick
 install phantomjs
 install pow
