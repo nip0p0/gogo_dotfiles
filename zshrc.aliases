@@ -1,12 +1,20 @@
 # General
 alias refresh='source ~/.zshrc'
-alias ls="ls -GAFa"
-alias lsl="ls -GAFal"
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias pbc='pbcopy'
+alias pbp='pbpaste'
+
+alias ls="ls -F"
+alias lsa="ls -AF"
 alias g='git'
 
+alias -g G='| grep'
 
 alias be='bundle exec'
-alias gam="git add .; git commit -m 'Fix something'"
+alias gam="git add .; git commit -m '[WIP]'"
 alias pg='postgres -D /usr/local/var/postgres'
 alias mongod='mongod --config /usr/local/etc/mongod.conf'
 alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
