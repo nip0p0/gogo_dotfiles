@@ -1,14 +1,16 @@
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/.go
+
 # Ruby
 eval "$(rbenv init -)"
 
 # z
 . `brew --prefix`/etc/profile.d/z.sh
 
-# Mysqlenv
-source ~/.mysqlenv/etc/bashrc
+export PATH=$PATH:/usr/local/go/bin
 
 # Cabal
 export PATH=$HOME/.cabal/bin:$PATH
