@@ -1,15 +1,14 @@
-apm install ask-stac
-apm install minimap
-apm install script
-apm install sublime-style-column-selection
-apm install atom-color-highlight
-apm install autocomplete-plus
-apm install autocomplete-paths
-apm install sublime-style-column-selection
-apm install vim-mode
-# appearance
-apm install file-icons
+Sublime-Style-Column-Selection@1.3.0
+atom-color-highlight@3.0.9
+autocomplete-paths@1.0.2
+color-picker@2.0.2
+file-icons@1.5.6
+language-haml@0.21.0
+language-haskell@1.0.0
+language-scala@1.1.0
+linter@0.12.6
+linter-ruby@0.1.6
+minimap@4.9.2
+script@2.23.0
+vim-mode@0.49.0
 
-# language
-apm install language-haskell
-apm install language-haml

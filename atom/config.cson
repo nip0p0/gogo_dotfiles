@@ -15,7 +15,6 @@
     showIndentGuide: true
     autoIndentOnPaste: false
     softWrap: true
-    fontSize: 14
     invisibles:
       {}
   whitespace:
@@ -24,3 +23,11 @@
     hideVcsIgnoredFiles: true
   "autocomplete-plus":
     confirmCompletion: "tab"
+  linter:
+    subtleLinterErrors: [
+      "ruby"
+    ]
+  "linter-ruby":
+    rubyExecutablePath: "/Users/gogo/.rbenv/shims/ruby"
+  minimap:
+    {}
