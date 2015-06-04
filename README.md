@@ -6,9 +6,7 @@
 
 # Homebrew
 
-```
-% brew bundle ~/.Brewfile
-```
+    $ brew brewdle
 
 
 # Install OhMyZsh
@@ -24,3 +22,7 @@ Using NeoBundle
 ```
 :NeoBundleInstall
 ```
+
+# Atomfile
+
+    $ apm install --packages-file
