@@ -34,3 +34,5 @@ bindkey -e
 setopt NO_beep
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+export GOPATH=/Users/gogo/go
+export PATH=$PATH:$GOPATH/bin
