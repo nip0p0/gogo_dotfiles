@@ -13,7 +13,9 @@ eval "$(rbenv init -)"
 export PATH=$PATH:/usr/local/go/bin
 
 # Cabal
-export PATH=$HOME/.cabal/bin:$PATH
+# export path=$HOME/.cabal/bin:$PATH
+
+export PATH=/Users/gogo/Library/Android/sdk/platform-tools:$PATH
 
 # Node.js
 
