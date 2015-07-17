@@ -25,4 +25,4 @@ Using NeoBundle
 
 # Atomfile
 
-    $ apm install --packages-file
+    $ apm install --packages-file Atomfile
