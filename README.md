@@ -26,3 +26,5 @@ Using NeoBundle
 # Atomfile
 
     $ apm install --packages-file Atomfile
+
+    $ apm update; apm list -bi > Atomfile
