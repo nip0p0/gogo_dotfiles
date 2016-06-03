@@ -14,13 +14,13 @@ compinit
 
 # oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="miloshadzic"
+ZSH_THEME="cloud"
 source $ZSH/oh-my-zsh.sh
 
 # History
 HISTFILE=$HOME/.zsh-history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
 export HISTIGNORE=ls:pwd
 setopt append_history
 setopt hist_ignore_dups
@@ -38,3 +38,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 source ~/.gvm/scripts/gvm
 export GOPATH=/Users/gogo/go
 export PATH=$PATH:$GOPATH/bin
+eval "$(docker-machine env default)"
+eval "$(direnv hook zsh)"
+
+# added by travis gem
+[ -f /Users/gogo/.travis/travis.sh ] && source /Users/gogo/.travis/travis.sh

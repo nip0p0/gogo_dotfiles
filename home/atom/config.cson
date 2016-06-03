@@ -1,0 +1,18 @@
+"*":
+  core:
+    excludeVcsIgnoredPaths: false
+  editor:
+    fontSize: 11
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "5c933472-ce74-7c45-7c72-c72cbf243043"
+  linter:
+    errorPanelHeight: 25
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

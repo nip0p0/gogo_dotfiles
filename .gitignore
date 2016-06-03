@@ -1,1 +1,3 @@
-atom/.apm
+home/atom/*
+!home/atom/config.cson
+

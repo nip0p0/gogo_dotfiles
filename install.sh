@@ -21,3 +21,7 @@ done
  then
    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
  fi
+
+# brew bundle
+brew tap Homebrew/bundle
+brew bundle
